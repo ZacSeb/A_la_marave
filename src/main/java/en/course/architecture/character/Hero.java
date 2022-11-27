@@ -11,6 +11,7 @@ public class Hero extends Fighter{
         this.strenght = Utils.BASE_STAT_HERO_STRENGHT_ARMOR;
         this.pvMax = Utils.BASE_STAT_HERO_PV;
         this.pvCurrent = this.pvMax;
+        this.setAlive(true);
     }
 
     public void levelUp(){

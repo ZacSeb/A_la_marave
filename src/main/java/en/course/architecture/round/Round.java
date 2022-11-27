@@ -9,5 +9,6 @@ public abstract class Round {
     public void createRound(Hero hero){
         Action action = createAction();
         action.action(hero);
+        System.out.println(action.getClass());
     }
 }

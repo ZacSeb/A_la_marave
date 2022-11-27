@@ -12,15 +12,18 @@ public class Game {
     public void start(){
         System.out.println("Début de la game");
         Hero hero = new Hero();
-        System.out.println(hero);
-        for(int i =0; i < Utils.NBR_TURN_GAME; i++){
+
+        //Utils.NBR_TURN_GAME
+        for(int i =0; i < 4; i++){
             Round round = null;
-            int nbrProba = Utils.genererInt(4,1);
+            int nbrProba = Utils.genererInt(1,5);
 
             if(nbrProba == 1) round = new MerlinRound();
             else if(nbrProba == 2) round = new WeaponMasterRound();
             else round = new FightRound();
             round.createRound(hero);
+            if(!hero.isAlive()) break;
         }
+        System.out.println("Fin de partie guignol");
     }
 }

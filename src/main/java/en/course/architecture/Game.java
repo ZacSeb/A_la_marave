@@ -15,7 +15,7 @@ public class Game {
         System.out.println(hero);
         for(int i =0; i < Utils.NBR_TURN_GAME; i++){
             Round round = null;
-            int nbrProba = Utils.genererInt();
+            int nbrProba = Utils.genererInt(4,1);
 
             if(nbrProba == 1) round = new MerlinRound();
             else if(nbrProba == 2) round = new WeaponMasterRound();

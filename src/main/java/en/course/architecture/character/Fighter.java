@@ -1,5 +1,7 @@
 package en.course.architecture.character;
 
+import en.course.architecture.Utils;
+
 public abstract class Fighter implements Character {
     protected int pvMax;
     protected float pvCurrent;
@@ -7,8 +9,10 @@ public abstract class Fighter implements Character {
     protected int armor;
     protected boolean alive;
 
-    protected void Attack(Fighter fighter) {
-
+    public void attack(Fighter fighter) {
+        //Un lancer de dés12  on prends le résultat du lancer + la force attaquant – l’armure défenseur = pt de dégât au défenseur
+        fighter.setPvCurrent(fighter.getPvCurrent() - (Utils.genererInt(1,12)+this.getStrenght() - fighter.getArmor()));
+        if(fighter.getPvCurrent() <= 0) fighter.setAlive(false);
     }
 
     public int getPvMax() {

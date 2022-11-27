@@ -6,5 +6,6 @@ public class WeaponMaster implements Action{
     @Override
     public void action(Hero hero) {
         hero.levelUp();
+        System.out.println("Des codeurs pourris comme toi y'en à une tétra chié !");
     }
 }

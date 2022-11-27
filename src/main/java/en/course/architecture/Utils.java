@@ -10,10 +10,10 @@ public class Utils {
     public static final int NBR_TURN_GAME = 20;
 
 
-    static int genererInt(){
+    public static int genererInt(int min, int max){
         Random random = new Random();
         int nb;
-        nb = 1+random.nextInt(4-1);
+        nb = min+random.nextInt(max-min);
         return nb;
     }
 }

@@ -14,7 +14,7 @@ public class Game {
         Hero hero = new Hero();
 
         //Utils.NBR_TURN_GAME
-        for(int i =0; i < 4; i++){
+        for(int i =0; i < Utils.NBR_TURN_GAME; i++){
             Round round = null;
             int nbrProba = Utils.genererInt(1,5);
 
@@ -24,6 +24,8 @@ public class Game {
             round.createRound(hero);
             if(!hero.isAlive()) break;
         }
-        System.out.println("Fin de partie guignol");
+        if(!hero.isAlive()) System.out.println("Fin de partie guignol, tu t'es fait pulvériser");
+        else System.out.println("Bravo tu as gagné !");
+
     }
 }

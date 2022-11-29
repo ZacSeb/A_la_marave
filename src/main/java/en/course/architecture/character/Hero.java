@@ -25,6 +25,9 @@ public class Hero extends Fighter{
         }
     }
 
+    /**
+     * When we meet the master of weapon (who insult us because we don't know how to code : ( )
+     */
     public void levelUp(){
         // +10% hp current
         if(this.pvCurrent * 1.1 <= this.pvMax) this.pvCurrent *= 1.1;
@@ -39,7 +42,7 @@ public class Hero extends Fighter{
     }
 
     /**
-     * used for
+     * used for ask to a player for up some stat (3 or 12)
      * @param statPoint
      * @throws IOException
      */

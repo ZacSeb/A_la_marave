@@ -1,10 +1,5 @@
 package en.courses.tests.character;
 
-import en.course.architecture.character.Character;
-import en.course.architecture.character.Fighter;
-import en.course.architecture.character.Hero;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 

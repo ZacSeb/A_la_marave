@@ -2,7 +2,7 @@ package en.course.architecture.character;
 
 import en.course.architecture.Utils;
 
-public abstract class Fighter implements Character {
+public abstract class Fighter {
     protected int pvMax;
     protected float pvCurrent;
     protected int strenght;

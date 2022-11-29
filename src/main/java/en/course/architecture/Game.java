@@ -1,0 +1,34 @@
+package en.course.architecture;
+
+import en.course.architecture.action.Action;
+import en.course.architecture.character.Fighter;
+import en.course.architecture.character.Hero;
+import en.course.architecture.round.FightRound;
+import en.course.architecture.round.MerlinRound;
+import en.course.architecture.round.Round;
+import en.course.architecture.round.WeaponMasterRound;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Game {
+    public void start() throws IOException {
+        System.out.println("Début de la game");
+        Hero hero = new Hero();
+        //Utils.NBR_TURN_GAME
+        for(int i =0; i < Utils.NBR_TURN_GAME; i++){
+            Round round = null;
+            int nbrProba = Utils.genererInt(1,5);
+
+            if(nbrProba == 1) round = new MerlinRound();
+            else if(nbrProba == 2) round = new WeaponMasterRound();
+            else round = new FightRound();
+            round.createRound(hero);
+            if(!hero.isAlive()) break;
+        }
+        if(!hero.isAlive()) System.out.println("Fin de partie guignol, tu t'es fait pulvériser");
+        else System.out.println("Bravo tu as gagné !");
+
+    }
+}

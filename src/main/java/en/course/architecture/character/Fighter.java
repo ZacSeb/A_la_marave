@@ -11,10 +11,11 @@ public abstract class Fighter implements Character {
 
     public void attack(Fighter fighter) {
         //Un lancer de dés12  on prends le résultat du lancer + la force attaquant – l’armure défenseur = pt de dégât au défenseur
-        System.out.println("Defenseur : "+ fighter.getClass()+ " Current pv : "+ fighter.getPvCurrent());
-        fighter.setPvCurrent(fighter.getPvCurrent() - (Utils.genererInt(1,12)+this.getStrenght() - fighter.getArmor()));
+        System.out.println("Defenseur AVANT ACTION: "+ fighter.getClass()+ " Current pv : "+ fighter.getPvCurrent());
+        float dammage = Utils.genererInt(1,12)+this.getStrenght() - fighter.getArmor();
+        if(dammage > 0) fighter.setPvCurrent(fighter.getPvCurrent() - dammage);
         if(fighter.getPvCurrent() <= 0) fighter.setAlive(false);
-        System.out.println("Defenseur : "+ fighter.getClass()+ " Current pv : "+ fighter.getPvCurrent());
+        System.out.println("Defenseur APRES ACTION: "+ fighter.getClass()+ " Current pv : "+ fighter.getPvCurrent());
     }
 
     public int getPvMax() {

@@ -38,6 +38,11 @@ public class Hero extends Fighter{
         }
     }
 
+    /**
+     * used for
+     * @param statPoint
+     * @throws IOException
+     */
     public void upStat(int statPoint) throws IOException {
         // declenche une boite de dialogue demandant au joueur comment répartir les points de stats
         boolean flag = false;
@@ -48,16 +53,10 @@ public class Hero extends Fighter{
             System.out.print("\n");
             System.out.print("Vous devez ajouter "+ statPoint+ " points a vos statistiques");
             System.out.print("\n");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.println("Combien voulez rajouter en force");
-            int strenghtBonus = Integer.parseInt(br.readLine());
-
-            System.out.println("Combien voulez rajouter en armure");
-            int armorBonus = Integer.parseInt(br.readLine());
-
-            System.out.println("Combien voulez rajouter en pv");
-            int pv = Integer.parseInt(br.readLine());
+            int strenghtBonus = askStat("force");
+            int armorBonus = askStat("armure");
+            int pv = askStat("pv");
 
             if(strenghtBonus+armorBonus+pv == statPoint){
                 this.setArmor(getArmor() + armorBonus);
@@ -69,9 +68,25 @@ public class Hero extends Fighter{
                 System.out.println("Vous n'avez pas rensseigné exactement "+ statPoint+ " au total");
             }
         }
-
-
     }
+
+    /**
+     * Only usefull for refactoring code, the app can be ruled without this
+     * @param text
+     * @return
+     */
+    public int askStat(String text){
+        System.out.println("Combien voulez rajouter en "+text);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int value = 0;
+        try {
+             value = Integer.parseInt(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return value;
+    }
+
     public int getLevel() {
         return level;
     }

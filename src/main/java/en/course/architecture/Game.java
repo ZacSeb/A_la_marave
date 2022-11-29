@@ -8,11 +8,14 @@ import en.course.architecture.round.MerlinRound;
 import en.course.architecture.round.Round;
 import en.course.architecture.round.WeaponMasterRound;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Game {
-    public void start(){
+    public void start() throws IOException {
         System.out.println("Début de la game");
         Hero hero = new Hero();
-
         //Utils.NBR_TURN_GAME
         for(int i =0; i < Utils.NBR_TURN_GAME; i++){
             Round round = null;
